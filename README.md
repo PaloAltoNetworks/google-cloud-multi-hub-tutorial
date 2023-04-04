@@ -1,4 +1,4 @@
-# Secure Google Cloud Hub-and-Spoke with VM-Series
+# Secure Multi-Hub Design with VM-Series
 
 This tutorial shows how to deploy and scale Palo Alto Networks VM-Series Next Generation Firewall with Terraform to secure a multi-hub and spoke architecture in Google Cloud.  
 
