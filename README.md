@@ -1,6 +1,6 @@
 # Secure Google Cloud Hub-and-Spoke with VM-Series
 
-This tutorial shows how to deploy and scale Palo Alto Networks VM-Series Next Generation Firewall with Terraform to secure a multi-hub and spoke architecture in Google Cloud.  This architecture uses two hub networks enabling you to onboard more spoke networks.  This enables you to secure more spoke networks (25 spokes per hub) while providing transitive routing among the spoke networks.  
+This tutorial shows how to deploy and scale Palo Alto Networks VM-Series Next Generation Firewall with Terraform to secure a multi-hub and spoke architecture in Google Cloud.  This architecture uses two hub networks enabling you to secure more spoke networks (25 spokes per hub) while providing transitive routing among all the connected spokes.  
 
 This tutorial is intended for network administrators, solution architects, and security professionals who are familiar with [Compute Engine](https://cloud.google.com/compute) and [Virtual Private Cloud (VPC) networking](https://cloud.google.com/vpc).
 
@@ -80,7 +80,7 @@ Panorama enables you to seamlessly scale the VM-Series for performance, while ma
 #### Panorama Bootstrap Prerequisites 
 * An existing Panorama appliance.
   * If you do not have Panorama deployed, you can deploy Panorama via [Terraform](https://github.com/PaloAltoNetworks/terraform-google-vmseries-modules/tree/main/examples/panorama) or through the [Google Cloud Marketplace](https://www.paloaltonetworks.com/resources/guides/panorama-on-gcp-deployment-guide).
-* A baseline configuration for Panorama to successfully bootstrap the VM-Series firewall.  For assistance with this configuration, please see the [Panorama Staging](docs/panorama_staging.md) community guide. 
+* A baseline configuration for Panorama to successfully bootstrap the VM-Series firewall.  For assistance with this configuration, please see the [Panorama Staging](https://github.com/PaloAltoNetworks/google-cloud-hub-spoke-tutorial/blob/main/docs/panorama_staging.md) community guide. 
 
 #### Modify Terraform to Bootstrap to Panorama
 
