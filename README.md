@@ -9,7 +9,7 @@ This tutorial is intended for network administrators, solution architects, and s
 
 Below is a diagram of the tutorial.  VM-Series firewalls are deployed with a regional managed instance group to secure north/south and east/west traffic for two spoke VPC networks.  Each spoke network is peered to a hub network.
 
-<img src="images/diagram.png">
+<img src="images/diagram.png" width=700>
 
 
 The VM-Series inspects traffic as follows:
@@ -199,7 +199,7 @@ To access the VM-Series user interface, a password must be set for the `admin` u
 
 Internet traffic is distributed by an external TCP/UDP load balancer to the VM-Series untrust interfaces. The VM-Series inspects and translates the traffic to `VM A` in the `spoke 1` network. `VM A`  runs a generic web service and Jenkins.
 
-<img src="images/diagram_ingress.png">
+<img src="images/diagram_ingress.png" width="700">
 
 
 
@@ -210,7 +210,7 @@ Internet traffic is distributed by an external TCP/UDP load balancer to the VM-S
     http://<EXTERNAL_LB_IP>
     ```
 
-    <img src="images/ss01.png" width="500">
+    <img src="images/ss01.png" width="250">
 
 
 
@@ -221,7 +221,7 @@ Internet traffic is distributed by an external TCP/UDP load balancer to the VM-S
     http://<EXTERNAL_LB_IP>:8080
     ```
 
-    <img src="images/ss02.png" width="500">
+    <img src="images/ss02.png" width="250">
 
 
 
@@ -237,7 +237,7 @@ Palo Alto Networks App-ID™ enables you to see applications on your network and
 1. On the VM-Series, go to **Policies → Security**. Click the allowed applications column within the `inbound-web` security policy. 
 
 
-    <img src="images/ss03.png" width="1500">
+    <img src="images/ss03.png" width="700">
 
 
 
@@ -245,7 +245,7 @@ Palo Alto Networks App-ID™ enables you to see applications on your network and
 2. Click **ADD** and search for `jenkins`.  Click **OK**.
 
 
-    <img src="images/ss04.png" width="350">
+    <img src="images/ss04.png" width="250">
 
 
 
@@ -253,7 +253,7 @@ Palo Alto Networks App-ID™ enables you to see applications on your network and
 3. Click **Commit → Commit** to apply the changes to the VM-Series configuration.
 
 
-    <img src="images/ss05.png" width="1500">
+    <img src="images/ss05.png" width="700">
 
 
 
@@ -261,7 +261,7 @@ Palo Alto Networks App-ID™ enables you to see applications on your network and
 4. Access the Jenkins service again.  The Jenkins page resolves because you enabled the `jenkins` application on the VM-Series security policy.  
 
 
-    <img src="images/ss06.png" width="500">
+    <img src="images/ss06.png" width="250">
 
 
 
@@ -273,7 +273,7 @@ Palo Alto Networks App-ID™ enables you to see applications on your network and
     ```
 
 
-    <img src="images/ss07.png" width="1500">
+    <img src="images/ss07.png" width="700">
 
 
 
@@ -285,7 +285,7 @@ Palo Alto Networks App-ID™ enables you to see applications on your network and
 The VM-Series secures outbound internet traffic from the spoke networks and east-west traffic traversing between spoke networks.  All egress traffic from the spoke networks is routed to the internal load balancer in its peered hub network. The load balancer distributes the traffic to the VM-Series hub interfaces, `NIC2` or `NIC3`, for inspection and forwarding.
 
 
-<img src="images/diagram_egress.png">
+<img src="images/diagram_egress.png" width=700>
 
 
 1. Establish an SSH session with `VM B` in the `Spoke 2` network.  The external load balancer distributes the request to the VM-Series.  The VM-Series inspects and translates the traffic to `VM B`. 
@@ -313,7 +313,7 @@ The VM-Series secures outbound internet traffic from the spoke networks and east
 
 4. On the VM-Series, go to **Monitor → Threat** to view the threat logs.  
 
-    <img src="images/ss08.png" width="1500"> 
+    <img src="images/ss08.png" width="700"> 
 
     The firewall’s security policies enable you to allow or block traffic on your network based on the user, application, and device.  When traffic matches the allow rule defined in the security policy,  the security profiles that are attached to the rule provide further content inspection.  Security profiles include:
 
