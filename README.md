@@ -36,8 +36,8 @@ The following is required for this tutorial:
     ```
     gcloud services enable compute.googleapis.com
     ssh-keygen -f ~/.ssh/vmseries-tutorial -t rsa
-    git clone https://github.com/PaloAltoNetworks/google-cloud-hub-spoke-tutorial
-    cd google-cloud-multi-hub-spoke-tutorial
+    git clone https://github.com/PaloAltoNetworks/google-cloud-multi-hub-tutorial
+    cd google-cloud-multi-hub-tutorial
     ```
 
 2. Create a `terraform.tfvars`.
