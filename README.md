@@ -1,8 +1,8 @@
 # Secure Google Cloud Hub-and-Spoke with VM-Series
 
-This tutorial shows how to deploy and scale Palo Alto Networks VM-Series Next Generation Firewall with Terraform to secure a multi-hub and spoke architecture in Google Cloud.  This architecture uses two hub networks enabling you to secure more spoke networks (25 spokes per hub) while providing transitive routing among all the connected spokes.  
+This tutorial shows how to deploy and scale Palo Alto Networks VM-Series Next Generation Firewall with Terraform to secure a multi-hub and spoke architecture in Google Cloud.  
 
-This tutorial is intended for network administrators, solution architects, and security professionals who are familiar with [Compute Engine](https://cloud.google.com/compute) and [Virtual Private Cloud (VPC) networking](https://cloud.google.com/vpc).
+This architecture uses two hub networks enabling you to secure more spoke networks (25 spokes per hub) while providing transitive routing among all the connected spokes.  If you require only a single hub network, please see [Secure Google Cloud Hub-and-Spoke with VM-Series](https://github.com/PaloAltoNetworks/google-cloud-hub-spoke-tutorial).
 
 
 ## Architecture
@@ -16,10 +16,10 @@ The VM-Series inspects traffic as follows:
 
 
 
-1. Traffic from the internet to an application in the `spoke1` VPC network, is distributed by an external TCP/UDP load balancer to the VM-Series untrust interfaces (`NIC0`).  The VM-Series inspects and forwards the request through `NIC2` to the application in `spoke1`.
+1. Traffic from the internet to an application in the `spoke1` VPC network, is distributed by an external load balancer to the VM-Series untrust interfaces (`NIC0`).  The VM-Series inspects and forwards the request through `NIC2` to the application in `spoke1`.
    * If the internet request is destined to an application in the `spoke2` VPC network, the VM-Series translates the traffic through `NIC3` to the application in `spoke2`.  
-2. Traffic from `spoke1` to the internet is routed to the internal TCP/UDP load balancer in the `hub1` network.  Traffic from `spoke2` to the internet is routed to the internal TCP/UDP load balancer in the `hub2` network.  Then, the VM-Series inspects and forwards the traffic through its untrust interface (`NIC0`) to the internet. 
-3. Traffic between spoke networks is routed to the internal TCP/UDP load balancers in each hub network.  The VM-Series inspects and forwards the traffic through its hub network interfaces, `NIC1` and `NIC2`.
+2. Traffic from `spoke1` to the internet is routed to the internal load balancer in the `hub1` network.  Traffic from `spoke2` to the internet is routed to the internal load balancer in the `hub2` network.  Then, the VM-Series inspects and forwards the traffic through its untrust interface (`NIC0`) to the internet. 
+3. Traffic between spoke networks is routed to the internal load balancers in each hub network.
 
 
 ## Requirements
