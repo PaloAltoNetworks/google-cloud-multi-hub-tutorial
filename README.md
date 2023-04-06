@@ -80,7 +80,7 @@ Panorama enables you to seamlessly scale the VM-Series for performance, while ma
 #### Panorama Bootstrap Prerequisites 
 * An existing Panorama appliance.
   * If you do not have Panorama deployed, you can deploy Panorama via [Terraform](https://github.com/PaloAltoNetworks/terraform-google-vmseries-modules/tree/main/examples/panorama) or through the [Google Cloud Marketplace](https://www.paloaltonetworks.com/resources/guides/panorama-on-gcp-deployment-guide).
-* A baseline configuration for Panorama to successfully bootstrap the VM-Series firewall.  For assistance with this configuration, please see the [Panorama Staging](https://github.com/PaloAltoNetworks/google-cloud-hub-spoke-tutorial/blob/main/docs/panorama_staging.md) community guide. 
+* A baseline configuration for Panorama to successfully bootstrap the VM-Series firewall.  For assistance with this configuration, please see the [Panorama Staging](https://github.com/PaloAltoNetworks/google-cloud-hub-spoke-tutorial/blob/f3de82f5260f34296c610cb32970a8f285b62562/docs/panorama_staging.md) community guide. 
 
 #### Modify Terraform to Bootstrap to Panorama
 
