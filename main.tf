@@ -285,6 +285,7 @@ module "vmseries" {
 module "lb_internal_hub1" {
   source              = "PaloAltoNetworks/vmseries-modules/google//modules/lb_internal"
   name                = "${local.prefix}vmseries-hub1-internal-lb"
+  region              = var.region
   network             = module.vpc_hub1.network_id
   subnetwork          = module.vpc_hub1.subnets_self_links[0]
   health_check_port   = "80"
@@ -298,6 +299,7 @@ module "lb_internal_hub1" {
 module "lb_internal_hub2" {
   source              = "PaloAltoNetworks/vmseries-modules/google//modules/lb_internal"
   name                = "${local.prefix}vmseries-hub2-internal-lb"
+  region              = var.region
   network             = module.vpc_hub2.network_id
   subnetwork          = module.vpc_hub2.subnets_self_links[0]
   health_check_port   = "80"
